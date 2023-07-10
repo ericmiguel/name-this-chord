@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Name This Chord</title>
+		<meta charset="utf-8" />
+
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1.0, shrink-to-fit=no" />
+		<meta http-equiv="x-ua-compatible" content="ie=edge" />
+		<meta name="description" content="Find musical intervals and chords, fast" />
+		<meta name="author" content="Eric Miguel" />
+		<meta
+			property="og:url"
+			content="https://ericmiguel.github.io/name-this-chord" />
+		<meta property="og:title" content="Name This Chord" />
+		<meta property="og:description" content="" />
+
+		<link rel="shortcut icon" href="img/favicons/favicon.ico" />
+		<link rel="icon" href="img/favicons/favicon.png" />
+
+		<link rel="stylesheet" href="css/home.css" />
+		<link rel="stylesheet" href="css/fretboard.css" />
+
+		<link
+			rel="stylesheet"
+			href="https://unpkg.com/spectre.css/dist/spectre.min.css" />
+		<link
+			rel="stylesheet"
+			href="https://unpkg.com/spectre.css/dist/spectre-exp.min.css" />
+		<link
+			rel="stylesheet"
+			href="https://unpkg.com/spectre.css/dist/spectre-icons.min.css" />
+		<link rel="canonical" href="https://picturepan2.github.io/spectre/" />
+	</head>
+
+	<body>
+		<div class="section section-hero bg-gray">
+			<div class="grid-lg text-center">
+				<header class="navbar">
+					<section class="navbar-section">
+						<div class="ntchord-brand">
+							<a class="ntchord-logo" href="index.html"
+								><img
+									src="img/spectre-logo.svg"
+									alt="Spectre.css CSS Framework" />
+								<h2>Name This Chord</h2></a
+							>
+						</div>
+					</section>
+
+					<section class="navbar-section">
+						<a href="#" class="btn btn-link">Threads</a>
+						<a href="#" class="btn btn-link">GitHub</a>
+					</section>
+				</header>
+			</div>
+		</div>
+
+		<div class="section section-hero bg-gray">
+			<div class="grid-hero container grid-lg text-center" id="overview">
+				<div class="columns">
+					<div class="column col-12">
+						<div class="fretboard" id="fretboard"></div>
+					</div>
+				</div>
+
+				<div class="columns">
+					<div class="column col-12">
+						<table class="table">
+							<thead>
+								<tr>
+									<th>root</th>
+									<th>2m</th>
+									<th>2M</th>
+									<th>3m</th>
+									<th>3M</th>
+									<th>4</th>
+									<th>4aug</th>
+									<th>5</th>
+									<th>6m</th>
+									<th>6M</th>
+									<th>7m</th>
+									<th>7M</th>
+									<th>8</th>
+								</tr>
+							</thead>
+							<tbody id="found-intervals">
+								<tr>
+									<td>-</td>
+									<td>-</td>
+									<td>-</td>
+									<td>-</td>
+									<td>-</td>
+									<td>-</td>
+									<td>-</td>
+									<td>-</td>
+									<td>-</td>
+									<td>-</td>
+									<td>-</td>
+									<td>-</td>
+									<td>-</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="section section-features bg-primary text-light text-center">
+			<div class="container grid-lg">
+				<h2>Introduction</h2>
+				<div class="columns">
+					<div class="column col-10 col-sm-12 col-mx-auto text-left">
+						<p class="text-secondary">
+							Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+							Suspendisse non magna tincidunt, euismod ante sed,
+							condimentum erat. Donec sit amet vulputate sapien. Aliquam
+							consectetur ligula quis ante lacinia placerat.
+						</p>
+						<p class="text-secondary">
+							Suspendisse et tincidunt sem, venenatis ullamcorper nibh.
+							Etiam vel efficitur ex, ac rhoncus libero.
+						</p>
+					</div>
+					<div class="column col-10 col-sm-12 col-mx-auto">
+						<a class="btn btn-lg" href="#">call to action</a>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="section section-updates bg-gray">
+			<div class="container grid-lg">
+				<div class="columns">
+					<div class="column col-4 col-xs-12">
+						<div class="card text-center">
+							<div class="card-header">
+								<div class="card-title h6">Lorem ipsum</div>
+							</div>
+							<div class="card-body">
+								Aliquam posuere in lacus ut pulvinar. Sed eget vulputate
+								diam, vel scelerisque massa.
+							</div>
+							<div class="card-footer">
+								<a class="btn btn-primary" href="#" target="_blank"
+									>call to action</a
+								>
+							</div>
+						</div>
+					</div>
+					<div class="column col-4 col-xs-12">
+						<div class="card text-center">
+							<div class="card-header">
+								<div class="card-title h6">Dolor sit amet</div>
+							</div>
+							<div class="card-body">
+								Sed lobortis enim ac orci consectetur, viverra aliquam
+								tellus bibendum.
+							</div>
+							<div class="card-footer">
+								<a class="btn btn-primary" href="#" target="_blank"
+									>call to action</a
+								>
+							</div>
+						</div>
+					</div>
+					<div class="column col-4 col-xs-12">
+						<div class="card text-center">
+							<div class="card-header">
+								<div class="card-title h6">Consectetur adipiscing</div>
+							</div>
+							<div class="card-body">
+								Donec consequat felis sed consequat placerat. Sed et
+								dolor vulputate, iaculis magna ac, rutrum augue.
+							</div>
+							<div class="card-footer">
+								<a class="btn btn-primary" href="#" target="_blank"
+									>call to action</a
+								>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<footer class="section section-footer text-center">
+			<div class="ntchord-footer container grid-lg" id="copyright">
+				<p>
+					<a
+						href="https://github.com/ericmiguel/name-this-chord"
+						target="_blank"
+						>GitHub</a
+					>
+					·
+					<a href="#" target="_blank">Threads</a>
+					· Version <span class="version"></span>
+				</p>
+				<p>
+					Designed and built with <span class="text-error">&hearts;</span> by
+					<a href="#" target="_blank">Eric Miguel</a>. Licensed under the
+					<a
+						href="https://github.com/ericmiguel/name-this-chord/blob/main/LICENSE"
+						target="_blank"
+						>GNU License</a
+					>.
+				</p>
+			</div>
+		</footer>
+		<script type="module" src="js/musical_const.js"></script>
+		<script type="module" src="js/fretboard.js"></script>
+	</body>
+</html>
