@@ -233,8 +233,19 @@ function create_fretboard(frets, strings, tuning = tunings["6 string standard"])
 	}
 }
 
-document.addEventListener("DOMContentLoaded", function (e) {
+function set_initial_chord() {
+	const strings = document.getElementsByClassName("string");
+	strings[0].getElementsByClassName("note-bubble")[3].click();
+	strings[1].getElementsByClassName("note-bubble")[3].click();
+	strings[2].getElementsByClassName("note-bubble")[0].click();
+	strings[3].getElementsByClassName("note-bubble")[0].click();
+	strings[4].getElementsByClassName("note-bubble")[2].click();
+	strings[5].getElementsByClassName("note-bubble")[3].click();
+}
+
+window.addEventListener("load", () => {
 	create_fretboard(n_frets, n_strings);
 	const fretboard = document.getElementById("fretboard");
 	fretboard.addEventListener("click", find_selected_intervals);
+	set_initial_chord();
 });
