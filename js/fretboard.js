@@ -190,6 +190,7 @@ function create_fretboard(frets, strings, tuning = tunings["6 string standard"])
 	for (let n_string = 0; n_string < strings; n_string++) {
 		let string = document.createElement("div");
 		string.classList.add("string");
+		string.setAttribute("string", n_string);
 
 		let n_fret = 0;
 		let n_semitone = 0;
