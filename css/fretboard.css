@@ -120,6 +120,7 @@ body {
 	display: none;
 	border-radius: 15px;
 	background: #5c398a;
+	text-align: center;;
 	z-index: 999;
 }
 
