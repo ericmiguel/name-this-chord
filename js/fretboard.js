@@ -129,7 +129,7 @@ function select_note() {
 	this.classList.toggle("selected");
 }
 
-function infer_chords() {
+function find_selected_intervals() {
 	const selected_frets = this.getElementsByClassName("note-bubble selected");
 	let selected_notes = [];
 	for (let fret = 0; fret < selected_frets.length; fret++) {
@@ -235,5 +235,5 @@ function create_fretboard(frets, strings, tuning = tunings["6 string standard"])
 document.addEventListener("DOMContentLoaded", function (e) {
 	create_fretboard(12, 6);
 	const fretboard = document.getElementById("fretboard");
-	fretboard.addEventListener("click", infer_chords);
+	fretboard.addEventListener("click", find_selected_intervals);
 });
