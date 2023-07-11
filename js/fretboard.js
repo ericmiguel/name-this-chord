@@ -4,8 +4,7 @@ import {
 	interval_names_to_semitones,
 	semitones_to_interval_names,
 	chord_intervals,
-} from "./musical_const.js"
-
+} from "./musical_const.js";
 
 class Note {
 	constructor(name) {
@@ -159,15 +158,23 @@ function infer_chords() {
 	const interval_box = document.getElementById("found-intervals");
 	interval_box.innerHTML = "";
 
+
+
 	for (const note in found_intervals) {
 		let tr = document.createElement("tr");
 
 		for (const interval in interval_names_to_semitones) {
 			const cell = document.createElement("td");
-			cell.innerHTML =
-				interval in found_intervals[note]
-					? found_intervals[note][interval]
-					: "-";
+			const note_cell = document.createElement("span");
+			const empty_cell = document.createElement("span");
+
+			note_cell.classList.add("table-note");
+			note_cell.innerHTML = found_intervals[note][interval];
+			
+
+			interval in found_intervals[note]
+				? cell.appendChild(note_cell)
+				: cell.appendChild(empty_cell)
 			tr.appendChild(cell);
 		}
 

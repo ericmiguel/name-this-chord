@@ -119,20 +119,30 @@ body {
 	height: 1.5rem;
 	display: none;
 	border-radius: 15px;
-	background: #5c398a;
-	text-align: center;;
+	background: #5755d9;
+	text-align: center;
 	z-index: 999;
 }
 
-.note-bubble.selected{
+.note-bubble.selected {
 	display: block;
-	background: #06e223;
+	background: #07af4d;
 }
 
-.note-bubble.fixed{
+.note-bubble.fixed {
 	display: block;
 }
 
 .note-fret:hover .note-bubble {
 	display: block;
+}
+
+table .table-note {
+	color: #fff;
+	cursor: pointer;
+	font-size: 0.75em;
+	border-radius: 5px;
+	background: #5755d9;
+	text-align: center;
+	padding: 5px 10px 5px;
 }
