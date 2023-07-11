@@ -6,6 +6,9 @@ import {
 	chord_intervals,
 } from "./musical_const.js";
 
+var n_strings = 6;
+var n_frets = 12;
+
 class Note {
 	constructor(name) {
 		this.name = name;
@@ -158,8 +161,6 @@ function find_selected_intervals() {
 	const interval_box = document.getElementById("found-intervals");
 	interval_box.innerHTML = "";
 
-
-
 	for (const note in found_intervals) {
 		let tr = document.createElement("tr");
 
@@ -170,11 +171,10 @@ function find_selected_intervals() {
 
 			note_cell.classList.add("table-note");
 			note_cell.innerHTML = found_intervals[note][interval];
-			
 
 			interval in found_intervals[note]
 				? cell.appendChild(note_cell)
-				: cell.appendChild(empty_cell)
+				: cell.appendChild(empty_cell);
 			tr.appendChild(cell);
 		}
 
@@ -234,7 +234,7 @@ function create_fretboard(frets, strings, tuning = tunings["6 string standard"])
 }
 
 document.addEventListener("DOMContentLoaded", function (e) {
-	create_fretboard(12, 6);
+	create_fretboard(n_frets, n_strings);
 	const fretboard = document.getElementById("fretboard");
 	fretboard.addEventListener("click", find_selected_intervals);
 });
