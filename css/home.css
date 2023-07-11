@@ -1,37 +1,16 @@
-.ntchord-brand {
-	color: #5755d9;
-}
-
 .ntchord-brand .ntchord-logo {
 	display: inline-flex;
 }
 
 .ntchord-brand .ntchord-logo h2 {
-	display: inline-block;
 	font-size: 0.8rem;
 	font-weight: 700;
 	line-height: 1.5rem;
-	margin-bottom: 0;
-	margin-left: 0.5rem;
-	margin-right: 0.3rem;
-}
-
-.ntchord-footer {
-	color: #bcc3ce;
-	padding: 0.5rem;
-	margin-top: 2rem;
-}
-
-.ntchord-footer a {
-	color: #66758c;
+	margin: 0 0.3rem 0 0.5rem;
 }
 
 .section-hero {
 	padding: 1rem 0.5rem;
-}
-
-.section-hero .ntchord-brand h2 {
-	color: #5755d9;
 }
 
 .section .interval-table {
@@ -62,31 +41,6 @@
 
 .section-footer a {
 	color: #66758c;
-}
-
-.grid-hero {
-	padding-bottom: 4rem;
-	padding-top: 1.5rem;
-}
-
-.grid-hero h1 {
-	color: #3b4351;
-	font-size: 1.6rem;
-	font-weight: 600;
-	margin-bottom: 1.5rem;
-}
-
-.grid-hero .card {
-	background: none;
-	border: 0;
-	color: #5b687d;
-}
-
-.grid-hero .card .card-title {
-	color: #5755d9;
-	font-size: 1rem;
-	font-weight: 700;
-	margin-bottom: 0;
 }
 
 @media (max-width: 960px) {
