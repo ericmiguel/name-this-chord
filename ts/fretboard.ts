@@ -27,31 +27,52 @@ function selectNote() {
 	this.classList.toggle("selected");
 }
 
-function findSelectedIntervals() {
-	const selectedFrets = this.getElementsByClassName("note-bubble selected");
+function findIntervals(fretboard: Element): {
+	[key: string]: { [key: string]: string };
+} {
+	const selectedFrets = fretboard.getElementsByClassName("note-bubble selected");
 	let selectedNotes = [];
 	for (let fret = 0; fret < selectedFrets.length; fret++) {
 		const selectedNote = selectedFrets[fret].getAttribute("note");
 		selectedNotes.push(new Note(selectedNote));
 	}
 
+	// assumes duplicated notes as octaves
+	const duplicatedNotes = {};
+	selectedNotes.forEach(function (x) {
+		duplicatedNotes[x.name] = (duplicatedNotes[x.name] || 0) + 1;
+	});
+
 	// filter duplicated notes
 	let uniqueNotes = [...new Map(selectedNotes.map((v) => [v.name, v])).values()];
 
 	let foundIntervals = {};
 	for (let n = 0; n < uniqueNotes.length; n++) {
-		let intervalsPerNote = {};
+		let noteRelatives = {};
 		for (let j = 0; j < uniqueNotes.length; j++) {
 			let interval = uniqueNotes[n].getRelativeInterval(uniqueNotes[j].name);
-			Object.assign(intervalsPerNote, {
+
+			Object.assign(noteRelatives, {
 				[interval.intervalName]: interval.note.name,
 			});
+
+			if (duplicatedNotes[uniqueNotes[n].name] > 1) {
+				Object.assign(noteRelatives, {
+					"octave": uniqueNotes[n].name,
+				});
+			}
 		}
 
 		Object.assign(foundIntervals, {
-			[uniqueNotes[n].name]: intervalsPerNote,
+			[uniqueNotes[n].name]: noteRelatives,
 		});
 	}
+
+	return foundIntervals;
+}
+
+function displayIntervals() {
+	const foundIntervals = findIntervals(this);
 
 	const intervalBox = document.getElementById("found-intervals");
 	intervalBox.innerHTML = "";
@@ -150,6 +171,6 @@ function setInitialChord() {
 window.addEventListener("load", () => {
 	createFretboard(nFrets, nStrings);
 	const fretboard: Element = document.getElementById("fretboard");
-	fretboard.addEventListener("click", findSelectedIntervals);
+	fretboard.addEventListener("click", displayIntervals);
 	setInitialChord();
 });
