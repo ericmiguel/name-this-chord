@@ -147,27 +147,46 @@ table .table-note {
 	padding: 5px 10px 5px;
 }
 
-.chip {
-	padding: 20px !important;
-
+.chord-bubble {
+	padding: 1em 3em 1em;
+	align-items: center;
+	background: #808080;
+	color: #ffffff;
+	border-radius: 5rem;
+	display: inline-flex;
+	font-size: 90%;
+	height: 1.2rem;
+	line-height: 0.8rem;
+	margin: 0.1rem;
+	max-width: 320px;
+	overflow: hidden;
+	padding: 1em 2em 1em;
+	text-decoration: none;
+	text-overflow: ellipsis;
+	vertical-align: middle;
+	white-space: nowrap;
 }
 
-.chip.power-chord {
+.chord-bubble.power-chord {
 	background: #3a4d42;
-	color: #ffffff;
 }
 
-.chip.major-chord {
+.chord-bubble.major-chord {
 	background: #4ba872;
-	color: #ffffff;
 }
 
-.chip.minor-chord {
+.chord-bubble.minor-chord {
 	background: #a34343;
-	color: #ffffff;
 }
 
-.chip.sus-chord {
+.chord-bubble.sus-chord {
 	background: #9b7b49;
-	color: #ffffff;
+}
+
+.chord-bubble.augmented-chord {
+	background: #b81775;
+}
+
+.chord-bubble.diminished-chord {
+	background: #7d17b8;
 }
