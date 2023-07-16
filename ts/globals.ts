@@ -21,7 +21,7 @@ const intervalValues: { [key: string]: number } = {
 	"major second": semitone * 2,
 	"minor third": semitone * 3,
 	"major third": semitone * 4,
-	"perfect fouth": semitone * 5,
+	"perfect fourth": semitone * 5,
 	"augmented fourth": semitone * 6,
 	"perfect fifth": semitone * 7,
 	"minor sixth": semitone * 8,
@@ -47,12 +47,4 @@ const intervalNames: { [key: number]: string } = {
 	[semitone * 12]: "octave",
 };
 
-const chordIntervals: { [key: string]: string[] } = {
-	power: ["root", "perfect fifth"],
-	major: ["root", "major third", "perfect fifth"],
-	minor: ["root", "minor third", "perfect fifth"],
-	sus2: ["root", "major second", "perfect fifth"],
-	sus4: ["root", "perfect fourth", "perfect fifth"],
-};
-
-export { semitone, noteNames, intervalValues, intervalNames, chordIntervals };
+export { semitone, noteNames, intervalValues, intervalNames };
