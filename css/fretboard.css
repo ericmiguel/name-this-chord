@@ -146,3 +146,28 @@ table .table-note {
 	text-align: center;
 	padding: 5px 10px 5px;
 }
+
+.chip {
+	padding: 20px !important;
+
+}
+
+.chip.power-chord {
+	background: #3a4d42;
+	color: #ffffff;
+}
+
+.chip.major-chord {
+	background: #4ba872;
+	color: #ffffff;
+}
+
+.chip.minor-chord {
+	background: #a34343;
+	color: #ffffff;
+}
+
+.chip.sus-chord {
+	background: #9b7b49;
+	color: #ffffff;
+}

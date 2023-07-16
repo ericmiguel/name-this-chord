@@ -1,5 +1,6 @@
 import { semitone, intervalValues } from "./globals.js";
 import { Note } from "./note.js";
+import { Chord } from "./chord.js";
 
 var nStrings: number = 6;
 var nFrets: number = 12;
@@ -58,7 +59,7 @@ function findIntervals(fretboard: Element): {
 
 			if (duplicatedNotes[uniqueNotes[n].name] > 1) {
 				Object.assign(noteRelatives, {
-					"octave": uniqueNotes[n].name,
+					octave: uniqueNotes[n].name,
 				});
 			}
 		}
@@ -74,6 +75,37 @@ function findIntervals(fretboard: Element): {
 function displayIntervals() {
 	const foundIntervals = findIntervals(this);
 
+	let foundChords = [];
+	for (const note in foundIntervals) {
+		foundChords.push(new Chord(note, foundIntervals[note]));
+	}
+
+	const chordsBox = document.getElementById("found-chords");
+	chordsBox.innerHTML = "";
+
+	for (const chord in foundChords) {
+		const chip = document.createElement("span");
+		chip.classList.add("chip");
+		
+		chip.innerHTML = foundChords[chord].getChordName();
+
+		console.log(foundChords[chord]);
+
+		if (foundChords[chord].power === true) {
+			chip.classList.add("power-chord");
+		} else if (foundChords[chord].major  === true) {
+			chip.classList.add("major-chord");
+		}else if (foundChords[chord].minor  === true) {
+			chip.classList.add("minor-chord");
+		}else if (foundChords[chord].sus  === true) {
+			chip.classList.add("sus-chord");
+		}
+
+		
+		chordsBox.appendChild(chip);
+	}
+
+	// intervals
 	const intervalBox = document.getElementById("found-intervals");
 	intervalBox.innerHTML = "";
 
@@ -88,7 +120,7 @@ function displayIntervals() {
 			noteCell.classList.add("table-note");
 			noteCell.innerHTML = foundIntervals[note][interval];
 
-			interval in foundIntervals[note]
+			foundIntervals[note].hasOwnProperty(interval)
 				? cell.appendChild(noteCell)
 				: cell.appendChild(emptyCell);
 			tr.appendChild(cell);

@@ -14,8 +14,11 @@
 }
 
 .section .interval-table {
-	margin: 2em 0 5em;
 	text-align: center;
+}
+
+.section .spacer{
+	margin: 2em 0 5em 0;
 }
 
 .section-updates {
