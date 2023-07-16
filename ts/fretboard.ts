@@ -85,23 +85,30 @@ function displayIntervals() {
 
 	for (const chord in foundChords) {
 		const chip = document.createElement("span");
-		chip.classList.add("chip");
-		
+		chip.classList.add("chord-bubble");
+
 		chip.innerHTML = foundChords[chord].getChordName();
 
 		console.log(foundChords[chord]);
 
 		if (foundChords[chord].power === true) {
 			chip.classList.add("power-chord");
-		} else if (foundChords[chord].major  === true) {
+		} else if (foundChords[chord].major === true) {
 			chip.classList.add("major-chord");
-		}else if (foundChords[chord].minor  === true) {
+		} else if (foundChords[chord].minor === true) {
 			chip.classList.add("minor-chord");
-		}else if (foundChords[chord].sus  === true) {
+		} else if (foundChords[chord].sus === true) {
 			chip.classList.add("sus-chord");
 		}
 
-		
+		if (foundChords[chord].diminished === true) {
+			chip.classList.add("diminished-chord");
+			chip.classList.remove("minor-chord");
+		} else if (foundChords[chord].augmented === true) {
+			chip.classList.add("augmented-chord");
+			chip.classList.remove("major-chord");
+		}
+
 		chordsBox.appendChild(chip);
 	}
 
