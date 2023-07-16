@@ -1,8 +1,21 @@
 const semitone = 5;
 
-const notes = ["C", "Db", "D", "Eb", "E", "F", "F#", "G", "Ab", "A", "Bb", "B"];
+const noteNames: string[] = [
+	"C",
+	"Db",
+	"D",
+	"Eb",
+	"E",
+	"F",
+	"F#",
+	"G",
+	"Ab",
+	"A",
+	"Bb",
+	"B",
+];
 
-const interval_names_to_semitones = {
+const intervalValues: { [key: string]: number } = {
 	root: semitone * 0,
 	"minor second": semitone * 1,
 	"major second": semitone * 2,
@@ -18,7 +31,7 @@ const interval_names_to_semitones = {
 	octave: semitone * 12,
 };
 
-const semitones_to_interval_names = {
+const intervalNames: { [key: number]: string } = {
 	[semitone * 0]: "root",
 	[semitone * 1]: "minor second",
 	[semitone * 2]: "major second",
@@ -34,7 +47,7 @@ const semitones_to_interval_names = {
 	[semitone * 12]: "octave",
 };
 
-const chord_intervals = {
+const chordIntervals: { [key: string]: string[] } = {
 	power: ["root", "perfect fifth"],
 	major: ["root", "major third", "perfect fifth"],
 	minor: ["root", "minor third", "perfect fifth"],
@@ -42,10 +55,4 @@ const chord_intervals = {
 	sus4: ["root", "perfect fourth", "perfect fifth"],
 };
 
-export {
-	semitone,
-	notes,
-	interval_names_to_semitones,
-	semitones_to_interval_names,
-	chord_intervals,
-};
+export { semitone, noteNames, intervalValues, intervalNames, chordIntervals };
