@@ -27,13 +27,21 @@ function selectNote() {
 	this.classList.toggle("selected");
 }
 
-function findIntervals(string: Element): { [key: string]: { [key: string]: string } } {
-	const selectedFrets = string.getElementsByClassName("note-bubble selected");
+function findIntervals(fretboard: Element): {
+	[key: string]: { [key: string]: string };
+} {
+	const selectedFrets = fretboard.getElementsByClassName("note-bubble selected");
 	let selectedNotes = [];
 	for (let fret = 0; fret < selectedFrets.length; fret++) {
 		const selectedNote = selectedFrets[fret].getAttribute("note");
 		selectedNotes.push(new Note(selectedNote));
 	}
+
+	// assumes duplicated notes as octaves
+	const duplicatedNotes = {};
+	selectedNotes.forEach(function (x) {
+		duplicatedNotes[x.name] = (duplicatedNotes[x.name] || 0) + 1;
+	});
 
 	// filter duplicated notes
 	let uniqueNotes = [...new Map(selectedNotes.map((v) => [v.name, v])).values()];
@@ -43,9 +51,16 @@ function findIntervals(string: Element): { [key: string]: { [key: string]: strin
 		let noteRelatives = {};
 		for (let j = 0; j < uniqueNotes.length; j++) {
 			let interval = uniqueNotes[n].getRelativeInterval(uniqueNotes[j].name);
+
 			Object.assign(noteRelatives, {
 				[interval.intervalName]: interval.note.name,
 			});
+
+			if (duplicatedNotes[uniqueNotes[n].name] > 1) {
+				Object.assign(noteRelatives, {
+					"octave": uniqueNotes[n].name,
+				});
+			}
 		}
 
 		Object.assign(foundIntervals, {
